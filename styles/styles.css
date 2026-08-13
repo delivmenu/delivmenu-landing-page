@@ -95,7 +95,7 @@ p.subtitle {
   display: flex !important;
   flex-direction: row !important;
   align-items: flex-start !important;
-  gap: 10px;
+  gap: 4px;
   text-align: left;
   width: 100%;
 }
