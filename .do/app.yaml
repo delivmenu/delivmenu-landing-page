@@ -1,0 +1,6 @@
+name: delivmenu-landing-page
+static_sites:
+  - name: delivmenu-landing
+    git:
+      repo_clone_url: https://github.com/delivmenu/delivmenu-landing-page.git
+      branch: main
