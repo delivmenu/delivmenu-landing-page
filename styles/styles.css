@@ -93,26 +93,24 @@ p.subtitle {
 /* Cada linha do item */
 .feature-item {
   display: flex !important;
-  flex-direction: row !important; /* Força o ícone e o texto lado a lado */
-  align-items: flex-start !important; /* Alinha o ícone com o topo da primeira linha */
-  gap: 4px;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 10px;
   text-align: left;
   width: 100%;
 }
 
 /* O ícone verde e alinhado */
 .check-icon {
-  display: inline-block !important; /* Impede a quebra de linha */
-  flex-shrink: 0 !important; /* Impede que o ícone esprema */
+  display: block !important; /* Mude de inline-block para block */
+  flex-shrink: 0 !important; /* Garante que não esprema */
   width: 18px !important;
   height: 18px !important;
   min-width: 18px !important;
   min-height: 18px !important;
-  color: var(
-    --primary-color
-  ) !important; /* Usa o verde principal do DelivMenu (#5bb396) */
-  fill: var(--primary-color) !important; /* Garante a cor verde */
-  margin-top: 3px; /* Ajuste fino vertical com o texto */
+  color: var(--primary-color) !important;
+  fill: var(--primary-color) !important;
+  margin-top: 3px; /* Alinhamento óptico com a primeira linha de texto */
 }
 
 /* Ajuste no texto para ocupar o restante da linha */
