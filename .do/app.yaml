@@ -1,6 +1,11 @@
 name: delivmenu-landing-page
+domains:
+  - domain: delivmenu.com.br
+    type: PRIMARY
+  - domain: www.delivmenu.com.br
+    type: ALIAS
 static_sites:
-  - name: delivmenu-landing
+  - name: delivmenu-landing-page
     git:
       repo_clone_url: https://github.com/delivmenu/delivmenu-landing-page.git
       branch: main
