@@ -154,6 +154,21 @@
         background-color: var(--primary-dark);
       }
 
+      button:disabled {
+        background-color: #a3d9c9;
+        cursor: not-allowed;
+      }
+
+      .msg-sucesso {
+        display: none;
+        background-color: #e6f5f0;
+        color: var(--primary-dark);
+        padding: 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+
       footer {
         margin-top: 2rem;
         font-size: 0.85rem;
@@ -163,7 +178,6 @@
   </head>
   <body>
     <main class="container">
-      <!-- Logo carregado da pasta assets -->
       <div class="logo-container">
         <img src="assets/logo.png" alt="DeliVMenu" />
       </div>
@@ -177,7 +191,6 @@
         de pedidos para transformar o delivery do seu estabelecimento.
       </p>
 
-      <!-- Destaques da Plataforma -->
       <div class="features-list">
         <ul>
           <li>
@@ -199,34 +212,80 @@
         </ul>
       </div>
 
-      <!-- Formulário de Captação -->
-      <!-- Lembre-se de alterar a action para a URL do seu Webhook no n8n -->
-      <form
-        action="https://SUA-URL-DO-N8N.ondigitalocean.app/webhook/leads"
-        method="POST"
-      >
+      <!-- Formulário do SheetDB -->
+      <form id="leadForm">
         <input
           type="text"
-          name="nome_restaurante"
+          id="nome_restaurante"
           placeholder="Nome do seu Restaurante / Hamburgueria"
           required
         />
         <input
           type="tel"
-          name="whatsapp"
+          id="whatsapp"
           placeholder="WhatsApp (DDD + Número)"
           required
         />
         <input
           type="email"
-          name="email"
+          id="email"
           placeholder="Seu e-mail principal"
           required
         />
-        <button type="submit">Quero garantir acesso antecipado</button>
+        <button type="submit" id="btnSubmit">
+          Quero garantir acesso antecipado
+        </button>
       </form>
+
+      <div id="msgSucesso" class="msg-sucesso">
+        🎉 Cadastro realizado com sucesso! Em breve entraremos em contato.
+      </div>
     </main>
 
     <footer>&copy; 2026 DeliVMenu. Todos os direitos reservados.</footer>
+
+    <script>
+      const form = document.getElementById("leadForm");
+      const btnSubmit = document.getElementById("btnSubmit");
+      const msgSucesso = document.getElementById("msgSucesso");
+
+      // COLE A SUA URL DO SHEETDB AQUI ABAIXO:
+      const SHEETDB_URL = "https://sheetdb.io/api/v1/nb8qy2ngav0jd";
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        btnSubmit.innerText = "Cadastrando...";
+        btnSubmit.disabled = true;
+
+        fetch(SHEETDB_URL, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            data: {
+              nome_restaurante:
+                document.getElementById("nome_restaurante").value,
+              whatsapp: document.getElementById("whatsapp").value,
+              email: document.getElementById("email").value,
+              created_at: new Date().toLocaleString("pt-BR"),
+            },
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            form.reset();
+            form.style.display = "none";
+            msgSucesso.style.display = "block";
+          })
+          .catch((error) => {
+            alert("Ocorreu um erro ao enviar. Tente novamente!");
+            btnSubmit.innerText = "Quero garantir acesso antecipado";
+            btnSubmit.disabled = false;
+          });
+      });
+    </script>
   </body>
 </html>
