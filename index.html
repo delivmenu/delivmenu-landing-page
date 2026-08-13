@@ -3,183 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      DelivMenu | O Sistema de Pedidos Inteligente para o seu Delivery
-    </title>
-    <style>
-      :root {
-        --primary-color: #5bb396;
-        --primary-dark: #468e77;
-        --text-dark: #1f2937;
-        --bg-light: #f8fafc;
-      }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-          Arial, sans-serif;
-      }
+    <title>DelivMenu | Cardápio Digital e Sistema de Pedidos Zero Taxa</title>
 
-      body {
-        background-color: var(--bg-light);
-        color: var(--text-dark);
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2rem 1rem;
-      }
+    <meta
+      name="description"
+      content="Aumente o lucro do seu restaurante com o DelivMenu. Cardápio web ultra rápido, integração com WhatsApp e ZERO taxa por venda. Faça seu pré-cadastro!"
+    />
+    <meta
+      name="keywords"
+      content="cardápio digital, sistema de pedidos, delivery zero taxa, cardápio whatsapp, sistema para restaurante, gestão de pedidos, piracicaba"
+    />
+    <meta name="author" content="DelivMenu" />
+    <meta name="robots" content="index, follow" />
 
-      .container {
-        max-width: 650px;
-        width: 100%;
-        text-align: center;
-        background: #ffffff;
-        padding: 2.5rem 2rem;
-        border-radius: 16px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-      }
+    <link rel="canonical" href="https://delivmenu.com.br/" />
 
-      .logo-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 1.5rem;
-      }
+    <!-- Link para o CSS na nova pasta -->
+    <link rel="stylesheet" href="styles/styles.css" />
 
-      .logo-container img {
-        max-width: 220px;
-        height: auto;
-      }
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
 
-      .badge {
-        display: inline-block;
-        background-color: #e6f5f0;
-        color: var(--primary-dark);
-        font-size: 0.85rem;
-        font-weight: 700;
-        padding: 0.4rem 1rem;
-        border-radius: 50px;
-        margin-bottom: 1.5rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
+    <!-- Open Graph / WhatsApp Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://delivmenu.com.br/" />
+    <meta
+      property="og:title"
+      content="DelivMenu | Cardápio Digital com ZERO taxa por venda"
+    />
+    <meta
+      property="og:description"
+      content="Plataforma completa de cardápio digital e gestão de pedidos para transformar o delivery do seu estabelecimento sem cobrar comissão."
+    />
+    <meta
+      property="og:image"
+      content="https://delivmenu.com.br/assets/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="DelivMenu" />
 
-      h1 {
-        font-size: 1.4rem;
-        color: var(--text-dark);
-        margin-bottom: 1rem;
-        line-height: 1.3;
-      }
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="DelivMenu | Cardápio Digital Zero Taxa"
+    />
+    <meta
+      name="twitter:description"
+      content="Plataforma de cardápio digital e gestão de pedidos sem comissão por venda."
+    />
+    <meta
+      name="twitter:image"
+      content="https://delivmenu.com.br/assets/og-image.png"
+    />
 
-      p.subtitle {
-        font-size: 1.05rem;
-        color: #6b7280;
-        margin-bottom: 2rem;
-        line-height: 1.6;
+    <!-- Dados Estruturados Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "DelivMenu",
+        "operatingSystem": "Web",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "BRL"
+        },
+        "description": "Plataforma de cardápio digital e gestão de pedidos sem comissão por venda para restaurantes e estabelecimentos comerciais.",
+        "url": "https://delivmenu.com.br/"
       }
-
-      .features-list {
-        text-align: left;
-        background-color: #f1fbf7;
-        padding: 1.25rem 1.5rem;
-        border-radius: 12px;
-        margin-bottom: 2rem;
-        border: 1px solid #d1f0e4;
-      }
-
-      .features-list ul {
-        list-style: none;
-      }
-
-      .features-list li {
-        margin-bottom: 0.75rem;
-        font-size: 0.95rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: #374151;
-      }
-
-      .features-list li:last-child {
-        margin-bottom: 0;
-      }
-
-      .features-list li::before {
-        content: "✓";
-        color: var(--primary-color);
-        font-weight: bold;
-        font-size: 1.1rem;
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      input[type="text"],
-      input[type="email"],
-      input[type="tel"] {
-        width: 100%;
-        padding: 0.85rem 1rem;
-        border: 1px solid #d1d5db;
-        border-radius: 8px;
-        font-size: 1rem;
-        outline: none;
-        transition: border-color 0.2s;
-      }
-
-      input:focus {
-        border-color: var(--primary-color);
-      }
-
-      button {
-        background-color: var(--primary-color);
-        color: #ffffff;
-        border: none;
-        padding: 0.95rem 1rem;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: background-color 0.2s;
-      }
-
-      button:hover {
-        background-color: var(--primary-dark);
-      }
-
-      button:disabled {
-        background-color: #a3d9c9;
-        cursor: not-allowed;
-      }
-
-      .msg-sucesso {
-        display: none;
-        background-color: #e6f5f0;
-        color: var(--primary-dark);
-        padding: 1rem;
-        border-radius: 8px;
-        font-weight: 600;
-        margin-top: 1rem;
-      }
-
-      footer {
-        margin-top: 2rem;
-        font-size: 0.85rem;
-        color: #9ca3af;
-      }
-    </style>
+    </script>
   </head>
   <body>
     <main class="container">
       <div class="logo-container">
-        <img src="assets/logo.png" alt="DeliVMenu" />
+        <img src="assets/logo.png" alt="DelivMenu" />
       </div>
 
       <div class="badge">🚀 Em Breve na Nossa Região</div>
@@ -242,7 +144,7 @@
       </div>
     </main>
 
-    <footer>&copy; 2026 DeliVMenu. Todos os direitos reservados.</footer>
+    <footer>&copy; 2026 DelivMenu. Todos os direitos reservados.</footer>
 
     <script>
       const form = document.getElementById("leadForm");
