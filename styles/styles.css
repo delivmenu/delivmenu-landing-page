@@ -74,10 +74,6 @@ p.subtitle {
   line-height: 1.6;
 }
 
-/* ==========================================================
-   FEATURE LIST (Fundo verde claro com isolamento total de checks)
-   ========================================================== */
-/* Container da lista (Card verde suave) */
 .features-list {
   padding: 20px;
   margin: 24px 0;
@@ -90,7 +86,6 @@ p.subtitle {
   gap: 14px;
 }
 
-/* Cada linha do item */
 .feature-item {
   display: flex !important;
   flex-direction: row !important;
@@ -100,20 +95,18 @@ p.subtitle {
   width: 100%;
 }
 
-/* O ícone verde e alinhado */
 .check-icon {
-  display: block !important; /* Mude de inline-block para block */
-  flex-shrink: 0 !important; /* Garante que não esprema */
+  display: block !important;
+  flex-shrink: 0 !important;
   width: 18px !important;
   height: 18px !important;
   min-width: 18px !important;
   min-height: 18px !important;
   color: var(--primary-color) !important;
   fill: var(--primary-color) !important;
-  margin-top: 3px; /* Alinhamento óptico com a primeira linha de texto */
+  margin-top: 3px;
 }
 
-/* Ajuste no texto para ocupar o restante da linha */
 .feature-text {
   font-size: 0.95rem;
   line-height: 1.45;
@@ -121,9 +114,6 @@ p.subtitle {
   flex: 1;
 }
 
-/* ==========================================================
-   FORMULÁRIO & OUTROS COMPONENTES
-   ========================================================== */
 form {
   display: flex;
   flex-direction: column;
