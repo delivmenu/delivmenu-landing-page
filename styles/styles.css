@@ -74,53 +74,64 @@ p.subtitle {
   line-height: 1.6;
 }
 
-/* Container da lista */
+/* Container principal com o fundo verde suave e bordas arredondadas */
 .features-list {
   list-style: none;
-  padding: 0;
-  margin: 20px 0;
+  padding: 20px; /* Espaçamento interno da caixa */
+  margin: 24px 0;
+
+  /* Fundo verde claro e borda */
+  background-color: #f0fdf4; /* Verde bem suave (Tailwind green-50) */
+  border: 1px solid #bbf7d0; /* Borda verde clara suave (Tailwind green-200) */
+  border-radius: 12px; /* Cantos arredondados */
+
+  /* Sombra leve para dar profundidade (opcional) */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  /* Organização interna dos itens */
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Espaçamento vertical entre os itens */
+  gap: 14px; /* Espaço entre os itens */
 }
 
-/* Cada item da lista */
+/* Item individual da lista */
 .feature-item {
   display: flex;
-  align-items: flex-start; /* Alinha o ícone no topo da primeira linha de texto */
-  gap: 12px; /* Espaço entre o ícone e o texto */
+  align-items: flex-start;
+  gap: 12px;
   text-align: left;
   width: 100%;
 }
 
-/* O ícone do check - O SEGREDO ESTÁ AQUI */
+/* Ícone de Check que não encolhe */
 .check-icon {
-  flex-shrink: 0; /* Impede o ícone de ser espremido quando o texto for longo no mobile */
-  width: 24px;
-  height: 24px;
-  color: #0e9f6e; /* Cor do verde ou branding */
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  color: #16a34a; /* Verde do ícone */
   font-weight: bold;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Conteúdo do texto */
+/* Texto da funcionalidade */
 .feature-text {
   font-size: 0.95rem;
-  line-height: 1.4;
-  color: #374151;
-  flex: 1; /* Faz o texto ocupar todo o espaço restante */
+  line-height: 1.45;
+  color: #1f2937;
+  flex: 1;
 }
 
-/* Ajustes finos para Mobile (Telas abaixo de 640px) */
+/* Ajustes finos para Mobile */
 @media (max-width: 640px) {
   .features-list {
-    gap: 14px; /* Aumenta levemente a distância entre linhas para facilitar leitura em telas pequenas */
+    padding: 16px; /* Reduz levemente o padding no celular para ganhar espaço */
+    gap: 12px;
   }
 
   .feature-text {
-    font-size: 0.9rem; /* Ajuste leve de tipografia para caber melhor */
+    font-size: 0.9rem;
   }
 }
 
