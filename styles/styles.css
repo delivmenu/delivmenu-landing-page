@@ -74,42 +74,54 @@ p.subtitle {
   line-height: 1.6;
 }
 
-/* Container principal com o fundo verde suave e bordas arredondadas */
-.features-list {
-  list-style: none !important; /* Remove marcadores da lista */
-  padding: 20px; /* Espaçamento interno da caixa */
+/* ==========================================================
+   FEATURE LIST (Fundo verde claro com isolamento total de checks)
+   ========================================================== */
+.features-list,
+ul.features-list {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding: 20px;
   margin: 24px 0;
 
-  /* Fundo verde claro e borda */
-  background-color: #f0fdf4; /* Verde bem suave (Tailwind green-50) */
-  border: 1px solid #bbf7d0; /* Borda verde clara suave (Tailwind green-200) */
-  border-radius: 12px; /* Cantos arredondados */
-
-  /* Sombra leve para dar profundidade (opcional) */
+  /* Estilização do Card */
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
-  /* Organização interna dos itens */
+  /* Layout interno */
   display: flex;
   flex-direction: column;
-  gap: 14px; /* Espaço entre os itens */
+  gap: 14px;
 }
 
-/* Item individual da lista */
+/* Garante a remoção de marcadores CSS injetados ou pseudo-elementos */
+.features-list li,
 .feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 2px;
   text-align: left;
   width: 100%;
-  list-style-type: none !important; /* Remove marcadores da lista */
+  list-style: none !important;
+  list-style-type: none !important;
 }
 
-/* Ícone de Check que não encolhe */
+.features-list li::before,
+.features-list li::after,
+.feature-item::before,
+.feature-item::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Ícone de Check customizado do HTML */
 .check-icon {
   flex-shrink: 0;
   width: 22px;
   height: 22px;
-  color: #16a34a; /* Verde do ícone */
+  color: #16a34a;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
@@ -127,7 +139,7 @@ p.subtitle {
 /* Ajustes finos para Mobile */
 @media (max-width: 640px) {
   .features-list {
-    padding: 16px; /* Reduz levemente o padding no celular para ganhar espaço */
+    padding: 16px;
     gap: 12px;
   }
 
@@ -136,6 +148,9 @@ p.subtitle {
   }
 }
 
+/* ==========================================================
+   FORMULÁRIO & OUTROS COMPONENTES
+   ========================================================== */
 form {
   display: flex;
   flex-direction: column;
