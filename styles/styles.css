@@ -51,7 +51,7 @@ body {
   display: inline-block;
   background-color: #e6f5f0;
   color: var(--primary-dark);
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   font-weight: 700;
   padding: 0.4rem 1rem;
   border-radius: 50px;
@@ -68,7 +68,7 @@ h1 {
 }
 
 p.subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #6b7280;
   margin-bottom: 2rem;
   line-height: 1.6;
